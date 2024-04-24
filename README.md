@@ -1,16 +1,16 @@
 # T-FLIPFLOP-POSEDGE
 
-**AIM:**
+## AIM:
 
 To implement  T flipflop using verilog and validating their functionality using their functional tables
 
-**SOFTWARE REQUIRED:**
+## SOFTWARE REQUIRED:
 
 Quartus prime
 
-**THEORY**
+## THEORY:
 
-**T Flip-Flop**
+## T Flip-Flop:
 
 T flip-flop is the simplified version of JK flip-flop. It is obtained by connecting the same input ‘T’ to both inputs of JK flip-flop. It operates with only positive clock transitions or negative clock transitions. The circuit diagram of T flip-flop is shown in the following figure.
 
@@ -26,17 +26,53 @@ Here, Qtt & Qt+1t+1 are present state & next state respectively. So, T flip-flop
  
 From the above characteristic table, we can directly write the next state equation as Q(t+1)=T′Q(t)+TQ(t)′ ⇒Q(t+1)=T⊕Q(t)
 
-**Procedure**
+## Procedure:
 
-/* write all the steps invloved */
+### STEP 1:
+Type the program in quartus software.
 
-**PROGRAM**
+### STEP 2:
+Compile and run the program.
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+### STEP 3:
+Generate the RTL schematic and save the logic diagram.
+
+### STEP 4:
+Create nodes for inputs and outputs to generate the timing diagram.
+
+### STEP 5:
+For different input combinations generate the timing diagram.
+
+## PROGRAM:
+
+/* Program for flipflops and verify its truth table in quartus using Verilog programming. <br>
+Developed by: SETHUKKARASI C<br>
+RegisterNumber: 212223230201
 */
+```
+module TFLIPFLOPPOSEDGE( input clk, rst_n, input t,
+output reg q,
+output q_bar
+);
+always@(posedge clk) 
+begin 
+if(!rst_n)
+q<=0;
+else
+if(t)
+q<=~q;
+else
+q<=q;
+end
+assign q_bar = ~q;
+endmodule
+```
 
-**RTL LOGIC FOR FLIPFLOPS**
+## RTL LOGIC FOR FLIPFLOPS:
+![rtl](image2.png)
 
-**TIMING DIGRAMS FOR FLIP FLOPS**
+## TIMING DIGRAMS FOR FLIP FLOPS:
+![output](image.png)
 
-**RESULTS**
+## RESULTS:
+Thus T flipflop using verilog has implemented and validating their functionality using their functional tables have completed successfully.
